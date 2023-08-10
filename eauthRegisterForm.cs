@@ -1,4 +1,4 @@
-﻿using Eauth;
+using Eauth;
 using System;
 using System.Windows.Forms;
 
@@ -30,11 +30,16 @@ namespace Eauth_CS_Winform
 
         private async void registerButton_Click(object sender, EventArgs e)
         {
-            MessageBox.Show(EauthPrimaryClass.registeredMessage);
+            registerButton.Enabled = false;
             if (await eauthClass.RegisterRequest(nameInput.Text, passwordInput.Text, keyInput.Text))
             {
-                MessageBox.Show("" + EauthPrimaryClass.registeredMessage);
+                MessageBox.Show(EauthPrimaryClass.registeredMessage);
             }
+            else
+            {
+                MessageBox.Show(eauthClass.errorMessage);
+            }
+            registerButton.Enabled = true;
         }
     }
 }
