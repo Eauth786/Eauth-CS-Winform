@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Windows.Forms;
 using Eauth;
 
@@ -30,6 +30,7 @@ namespace Eauth_CS_Winform
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            loginButton.Enabled = false;
             if (await eauthClass.LoginRequest(nameInput.Text, passwordInput.Text, keyInput.Text))
             {
                 MessageBox.Show(EauthPrimaryClass.loggedMessage
@@ -38,6 +39,11 @@ namespace Eauth_CS_Winform
                     + "\n " + "Register Date: " + eauthClass.registerDate
                     + "\n " + "Expire Date: " + eauthClass.expireDate);
             }
+            else
+            {
+                MessageBox.Show(eauthClass.errorMessage);
+            }
+            loginButton.Enabled = true;
         }
 
         private void eauthLoginForm_Load(object sender, EventArgs e)
