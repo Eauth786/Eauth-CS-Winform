@@ -5,13 +5,11 @@ using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Runtime.InteropServices;
 using System.Security.Principal;
-using System.Threading;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
 using System.Text.Json;
-using System.Windows.Forms;
 
 namespace Eauth
 {
@@ -49,15 +47,15 @@ namespace Eauth
         public static string loggedMessage;
         public static string registeredMessage;
 
-        private bool login;
-        public string userRank;
-        public string registerDate;
-        public string expireDate;
-        public string userHwid;
+        private static bool login;
+        public static string userRank;
+        public static string registerDate;
+        public static string expireDate;
+        public static string userHwid;
 
-        private bool register;
+        private static bool register;
 
-        public string errorMessage;
+        public static string errorMessage;
 
         private static readonly HttpClient _client = new HttpClient();
 
@@ -140,11 +138,11 @@ namespace Eauth
         }
 
         // Initialization request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/initialization)
-        public async void InitRequest()
+        public async Task<bool> InitRequest()
         {
             if (init)
             {
-                return;
+                return init;
             }
             var data = new Dictionary<string, string>
             {
@@ -191,15 +189,17 @@ namespace Eauth
             {
                 LogEauthError(document.RootElement.GetProperty("paused_message").GetString());
             }
+            return init;
         }
 
         // Register request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/register)
         public async Task<bool> RegisterRequest(string username, string password, string key)
         {
-            /*if (register || login)
+            if (register || login)
             {
+                LogEauthError(usedSessionMessage);
                 return false;
-            }*/
+            }
             var data = new Dictionary<string, string>
             {
                 { "sort", "register" },
@@ -322,7 +322,7 @@ namespace Eauth
             }
             else if (message == "session_unavailable")
             {
-                LogEauthError(unavaiableSessionMessage);
+                LogEauthError(unavaiableSessionMessage + " " + sessionID + " " + response);
             }
             else if (message == "invalid_request")
             {

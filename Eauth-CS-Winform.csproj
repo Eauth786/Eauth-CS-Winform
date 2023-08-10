@@ -36,6 +36,9 @@
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=7.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\Microsoft.Bcl.AsyncInterfaces.7.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
     </Reference>
+    <Reference Include="Siticone.Desktop.UI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=9683591576b7f0b4, processorArchitecture=MSIL">
+      <HintPath>packages\Siticone.Desktop.UI.2.1.1\lib\net40\Siticone.Desktop.UI.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Buffers, Version=4.0.3.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>packages\System.Buffers.4.5.1\lib\net461\System.Buffers.dll</HintPath>
@@ -75,25 +78,34 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Eauth.cs" />
+    <Compile Include="eauthLoginFormLK.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eauthLoginFormLK.Designer.cs">
+      <DependentUpon>eauthLoginFormLK.cs</DependentUpon>
+    </Compile>
     <Compile Include="eauthRegisterForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="eauthRegisterForm.Designer.cs">
       <DependentUpon>eauthRegisterForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="eauthLoginForm.cs">
+    <Compile Include="eauthLoginFormUP.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="eauthLoginForm.Designer.cs">
-      <DependentUpon>eauthLoginForm.cs</DependentUpon>
+    <Compile Include="eauthLoginFormUP.Designer.cs">
+      <DependentUpon>eauthLoginFormUP.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="eauthLoginFormLK.resx">
+      <DependentUpon>eauthLoginFormLK.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="eauthRegisterForm.resx">
       <DependentUpon>eauthRegisterForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="eauthLoginForm.resx">
-      <DependentUpon>eauthLoginForm.cs</DependentUpon>
+    <EmbeddedResource Include="eauthLoginFormUP.resx">
+      <DependentUpon>eauthLoginFormUP.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

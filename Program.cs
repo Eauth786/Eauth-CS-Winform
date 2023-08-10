@@ -13,7 +13,7 @@ namespace Eauth_CS_Winform
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new eauthLoginForm());
+            Application.Run(new eauthLoginFormUP());
         }
     }
 }

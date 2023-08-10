@@ -29,118 +29,243 @@ namespace Eauth_CS_Winform
         /// </summary>
         private void InitializeComponent()
         {
-            this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
-            this.registerButton = new System.Windows.Forms.Button();
-            this.passwordInput = new System.Windows.Forms.TextBox();
-            this.nameInput = new System.Windows.Forms.TextBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.keyInput = new System.Windows.Forms.TextBox();
-            this.loginInsteadButton = new System.Windows.Forms.Button();
+            this.components = new System.ComponentModel.Container();
+            this.siticoneBorderlessForm1 = new Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm(this.components);
+            this.registerInsteadButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
+            this.colorPanel = new Siticone.Desktop.UI.WinForms.SiticonePanel();
+            this.registerButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.nameLabel = new System.Windows.Forms.Label();
+            this.passwordInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.nameInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.keyInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.SuspendLayout();
             // 
-            // label2
+            // siticoneBorderlessForm1
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(124, 84);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(53, 13);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Password";
+            this.siticoneBorderlessForm1.ContainerControl = this;
+            this.siticoneBorderlessForm1.DockIndicatorTransparencyValue = 0.6D;
+            this.siticoneBorderlessForm1.DragStartTransparencyValue = 1D;
+            this.siticoneBorderlessForm1.ResizeForm = false;
+            this.siticoneBorderlessForm1.TransparentWhileDrag = true;
             // 
-            // label1
+            // registerInsteadButton
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(124, 27);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(55, 13);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Username";
+            this.registerInsteadButton.Animated = true;
+            this.registerInsteadButton.AutoRoundedCorners = true;
+            this.registerInsteadButton.BorderRadius = 10;
+            this.registerInsteadButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.registerInsteadButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.registerInsteadButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.registerInsteadButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.registerInsteadButton.FillColor = System.Drawing.Color.Transparent;
+            this.registerInsteadButton.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Bold);
+            this.registerInsteadButton.ForeColor = System.Drawing.Color.White;
+            this.registerInsteadButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.registerInsteadButton.Location = new System.Drawing.Point(12, 183);
+            this.registerInsteadButton.Name = "registerInsteadButton";
+            this.registerInsteadButton.Size = new System.Drawing.Size(310, 23);
+            this.registerInsteadButton.TabIndex = 25;
+            this.registerInsteadButton.Text = "I Have an Account";
+            this.registerInsteadButton.Click += new System.EventHandler(this.loginInsteadButton_Click);
+            // 
+            // exitButton
+            // 
+            this.exitButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.exitButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.exitButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.exitButton.FillColor = System.Drawing.Color.Transparent;
+            this.exitButton.FocusedColor = System.Drawing.Color.FromArgb(((int)(((byte)(236)))), ((int)(((byte)(21)))), ((int)(((byte)(39)))));
+            this.exitButton.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.exitButton.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.exitButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(232)))), ((int)(((byte)(17)))), ((int)(((byte)(35)))));
+            this.exitButton.Location = new System.Drawing.Point(295, 9);
+            this.exitButton.Margin = new System.Windows.Forms.Padding(0);
+            this.exitButton.Name = "exitButton";
+            this.exitButton.ShadowDecoration.Mode = Siticone.Desktop.UI.WinForms.Enums.ShadowMode.Circle;
+            this.exitButton.Size = new System.Drawing.Size(30, 35);
+            this.exitButton.TabIndex = 24;
+            this.exitButton.Text = "X";
+            this.exitButton.Click += new System.EventHandler(this.exitButton_Click);
+            // 
+            // colorPanel
+            // 
+            this.colorPanel.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.colorPanel.Location = new System.Drawing.Point(0, 0);
+            this.colorPanel.Name = "colorPanel";
+            this.colorPanel.Size = new System.Drawing.Size(334, 1);
+            this.colorPanel.TabIndex = 23;
             // 
             // registerButton
             // 
-            this.registerButton.Location = new System.Drawing.Point(185, 188);
+            this.registerButton.Animated = true;
+            this.registerButton.AutoRoundedCorners = true;
+            this.registerButton.BorderRadius = 10;
+            this.registerButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.registerButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.registerButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.registerButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.registerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.registerButton.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
+            this.registerButton.ForeColor = System.Drawing.Color.White;
+            this.registerButton.Location = new System.Drawing.Point(12, 154);
             this.registerButton.Name = "registerButton";
-            this.registerButton.Size = new System.Drawing.Size(112, 48);
-            this.registerButton.TabIndex = 7;
+            this.registerButton.Size = new System.Drawing.Size(310, 23);
+            this.registerButton.TabIndex = 22;
             this.registerButton.Text = "Register";
-            this.registerButton.UseVisualStyleBackColor = true;
             this.registerButton.Click += new System.EventHandler(this.registerButton_Click);
+            // 
+            // nameLabel
+            // 
+            this.nameLabel.AutoSize = true;
+            this.nameLabel.Font = new System.Drawing.Font("Yu Gothic UI", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameLabel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(214)))), ((int)(((byte)(214)))), ((int)(((byte)(214)))));
+            this.nameLabel.Location = new System.Drawing.Point(13, 13);
+            this.nameLabel.Name = "nameLabel";
+            this.nameLabel.Size = new System.Drawing.Size(104, 17);
+            this.nameLabel.TabIndex = 21;
+            this.nameLabel.Text = "Eauth | Register";
             // 
             // passwordInput
             // 
-            this.passwordInput.Location = new System.Drawing.Point(127, 100);
+            this.passwordInput.Animated = true;
+            this.passwordInput.AutoRoundedCorners = true;
+            this.passwordInput.BackColor = System.Drawing.Color.Transparent;
+            this.passwordInput.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.passwordInput.BorderRadius = 10;
+            this.passwordInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.passwordInput.DefaultText = "";
+            this.passwordInput.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.passwordInput.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.passwordInput.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordInput.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.passwordInput.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.passwordInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.passwordInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.passwordInput.ForeColor = System.Drawing.Color.LightGray;
+            this.passwordInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.passwordInput.Location = new System.Drawing.Point(44, 89);
+            this.passwordInput.MaxLength = 32;
             this.passwordInput.Name = "passwordInput";
-            this.passwordInput.Size = new System.Drawing.Size(239, 20);
-            this.passwordInput.TabIndex = 6;
+            this.passwordInput.PasswordChar = '●';
+            this.passwordInput.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.passwordInput.PlaceholderText = "Password";
+            this.passwordInput.SelectedText = "";
+            this.passwordInput.ShadowDecoration.BorderRadius = 3;
+            this.passwordInput.ShadowDecoration.Depth = 5;
+            this.passwordInput.ShadowDecoration.Enabled = true;
+            this.passwordInput.Size = new System.Drawing.Size(244, 23);
+            this.passwordInput.TabIndex = 20;
+            this.passwordInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.passwordInput.UseSystemPasswordChar = true;
             // 
             // nameInput
             // 
-            this.nameInput.Location = new System.Drawing.Point(127, 43);
-            this.nameInput.MaxLength = 36;
+            this.nameInput.Animated = true;
+            this.nameInput.AutoRoundedCorners = true;
+            this.nameInput.BackColor = System.Drawing.Color.Transparent;
+            this.nameInput.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.nameInput.BorderRadius = 10;
+            this.nameInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.nameInput.DefaultText = "";
+            this.nameInput.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.nameInput.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.nameInput.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.nameInput.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.nameInput.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.nameInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.nameInput.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.nameInput.ForeColor = System.Drawing.Color.LightGray;
+            this.nameInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.nameInput.Location = new System.Drawing.Point(44, 57);
+            this.nameInput.MaxLength = 16;
             this.nameInput.Name = "nameInput";
-            this.nameInput.Size = new System.Drawing.Size(239, 20);
-            this.nameInput.TabIndex = 5;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(124, 146);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(65, 13);
-            this.label3.TabIndex = 11;
-            this.label3.Text = "License Key";
+            this.nameInput.PasswordChar = '\0';
+            this.nameInput.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.nameInput.PlaceholderText = "Username";
+            this.nameInput.SelectedText = "";
+            this.nameInput.ShadowDecoration.BorderRadius = 3;
+            this.nameInput.ShadowDecoration.Depth = 5;
+            this.nameInput.ShadowDecoration.Enabled = true;
+            this.nameInput.Size = new System.Drawing.Size(244, 23);
+            this.nameInput.TabIndex = 19;
+            this.nameInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
             // keyInput
             // 
-            this.keyInput.Location = new System.Drawing.Point(127, 162);
+            this.keyInput.Animated = true;
+            this.keyInput.AutoRoundedCorners = true;
+            this.keyInput.BackColor = System.Drawing.Color.Transparent;
+            this.keyInput.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.keyInput.BorderRadius = 10;
+            this.keyInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.keyInput.DefaultText = "";
+            this.keyInput.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.keyInput.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.keyInput.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.keyInput.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.keyInput.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.keyInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.keyInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.keyInput.ForeColor = System.Drawing.Color.LightGray;
+            this.keyInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.keyInput.Location = new System.Drawing.Point(44, 121);
+            this.keyInput.MaxLength = 15;
             this.keyInput.Name = "keyInput";
-            this.keyInput.Size = new System.Drawing.Size(239, 20);
-            this.keyInput.TabIndex = 10;
-            // 
-            // loginInsteadButton
-            // 
-            this.loginInsteadButton.Location = new System.Drawing.Point(141, 242);
-            this.loginInsteadButton.Name = "loginInsteadButton";
-            this.loginInsteadButton.Size = new System.Drawing.Size(200, 45);
-            this.loginInsteadButton.TabIndex = 12;
-            this.loginInsteadButton.Text = "Login instead";
-            this.loginInsteadButton.UseVisualStyleBackColor = true;
-            this.loginInsteadButton.Click += new System.EventHandler(this.loginInsteadButton_Click);
+            this.keyInput.PasswordChar = '●';
+            this.keyInput.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.keyInput.PlaceholderText = "License Key";
+            this.keyInput.SelectedText = "";
+            this.keyInput.ShadowDecoration.BorderRadius = 3;
+            this.keyInput.ShadowDecoration.Depth = 5;
+            this.keyInput.ShadowDecoration.Enabled = true;
+            this.keyInput.Size = new System.Drawing.Size(244, 23);
+            this.keyInput.TabIndex = 26;
+            this.keyInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.keyInput.UseSystemPasswordChar = true;
             // 
             // eauthRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(518, 294);
-            this.Controls.Add(this.loginInsteadButton);
-            this.Controls.Add(this.label3);
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
+            this.ClientSize = new System.Drawing.Size(334, 220);
             this.Controls.Add(this.keyInput);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.label1);
+            this.Controls.Add(this.registerInsteadButton);
+            this.Controls.Add(this.exitButton);
+            this.Controls.Add(this.colorPanel);
             this.Controls.Add(this.registerButton);
+            this.Controls.Add(this.nameLabel);
             this.Controls.Add(this.passwordInput);
             this.Controls.Add(this.nameInput);
+            this.Font = new System.Drawing.Font("Yu Gothic UI", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.ForeColor = System.Drawing.SystemColors.ControlText;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
             this.Name = "eauthRegisterForm";
-            this.Opacity = 0.95D;
+            this.Opacity = 0.98D;
+            this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eauth.us.to";
+            this.TopMost = true;
+            this.Load += new System.EventHandler(this.eauthRegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Button registerButton;
-        private System.Windows.Forms.TextBox passwordInput;
-        private System.Windows.Forms.TextBox nameInput;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox keyInput;
-        private System.Windows.Forms.Button loginInsteadButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneBorderlessForm siticoneBorderlessForm1;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton registerInsteadButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneCircleButton exitButton;
+        private Siticone.Desktop.UI.WinForms.SiticonePanel colorPanel;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton registerButton;
+        private System.Windows.Forms.Label nameLabel;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox passwordInput;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox nameInput;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox keyInput;
     }
 }
 
