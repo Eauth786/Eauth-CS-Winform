@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Net.Http;
@@ -57,6 +57,8 @@ namespace Eauth
 
         private bool register;
 
+        public string errorMessage;
+
         private static readonly HttpClient _client = new HttpClient();
 
         public static string ComputeSHA512(string input)
@@ -109,9 +111,7 @@ namespace Eauth
         // Log Eauth errors
         private void LogEauthError(string message)
         {
-            MessageBox.Show(message);
-            Thread.Sleep(1000); // Wait for 1 second
-            Environment.Exit(0); // Exit the application
+            errorMessage = message;
         }
 
         public string GetHardwareID()
