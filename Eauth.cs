@@ -10,6 +10,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Linq;
 using System.Text.Json;
+using System.Diagnostics;
 
 namespace Eauth
 {
@@ -179,6 +180,11 @@ namespace Eauth
             }
             else if (message == "version_outdated")
             {
+                string download_link = document.RootElement.GetProperty("download_link").GetString();
+                if (download_link != "")
+                {
+                    Process.Start(download_link);
+                }
                 LogEauthError(outdatedVersionMessage);
             }
             else if (message == "maximum_sessions_reached")
@@ -285,11 +291,7 @@ namespace Eauth
                 JsonDocument register_document = JsonDocument.Parse(register_response);
                 string register_message = register_document.RootElement.GetProperty("message").GetString();
 
-                if (register_message == "register_success" || register_message == "name_already_used")
-                {
-                    login = true;
-                }
-                else
+                if (register_message != "register_success" && register_message != "name_already_used")
                 {
                     LogEauthError(invalidKeyMessage);
                 }
@@ -309,7 +311,7 @@ namespace Eauth
 
             if (message == "login_success")
             {
-                // Login success (username and password)
+                // Login success
                 login = true;
                 userRank = document.RootElement.GetProperty("rank").GetString();
                 registerDate = document.RootElement.GetProperty("register_date").GetString();
@@ -322,7 +324,7 @@ namespace Eauth
             }
             else if (message == "session_unavailable")
             {
-                LogEauthError(unavaiableSessionMessage + " " + sessionID + " " + response);
+                LogEauthError(unavaiableSessionMessage);
             }
             else if (message == "invalid_request")
             {

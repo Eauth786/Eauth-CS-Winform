@@ -28,8 +28,14 @@ namespace Eauth_CS_Winform
 
         private async void loginButton_Click(object sender, EventArgs e)
         {
+            string licenseKey = licenseField1.Text + "-" + licenseField2.Text + "-" + licenseField3.Text + "-" + licenseField4.Text;
+            if (licenseKey.EndsWith("-"))
+            {
+                licenseKey = licenseKey.Remove(licenseKey.Length - 1);
+            }
+
             loginButton.Enabled = false;
-            if (await eauthClass.LoginRequest("", "", licenseKeyInput.Text))
+            if (await eauthClass.LoginRequest("", "", licenseKey))
             {
                 // Code block executed if credentials are valid:
                 MessageBox.Show(EauthPrimaryClass.loggedMessage
@@ -58,6 +64,25 @@ namespace Eauth_CS_Winform
 
             // Close the current form
             this.Close();
+        }
+
+        private void licenseField1_TextChanged(object sender, EventArgs e)
+        {
+            licenseField2.Text = "";
+            licenseField3.Text = "";
+            licenseField4.Text = "";
+            try
+            {
+                string[] parts = licenseField1.Text.Split('-');
+                licenseField1.Text = parts[0];
+                licenseField2.Text = parts[1];
+                licenseField3.Text = parts[2];
+                licenseField4.Text = parts[3];
+            }
+            catch
+            {
+
+            }
         }
     }
 }
