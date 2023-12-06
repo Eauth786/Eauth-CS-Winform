@@ -358,7 +358,7 @@ namespace Eauth
             }
             else if (message == "hwid_incorrect")
             {
-                LogEauthError(incorrectHwidMessage);
+                LogEauthError(incorrectHwidMessage + "\n" + "HWID reset is available " + document.RootElement.GetProperty("estimated_reset_time").GetString());
             }
             else if (message == "subscription_expired")
             {
