@@ -37,6 +37,18 @@ namespace Eauth_CS_Winform
                     + "\n " + "Hardware-ID: " + EauthPrimaryClass.userHwid
                     + "\n " + "Register Date: " + EauthPrimaryClass.registerDate
                     + "\n " + "Expire Date: " + EauthPrimaryClass.expireDate);
+
+                // Download file
+                /*
+                if (await eauthClass.DownloadRequest("fileID", "./path", "name.format")) // (ex) name.format > name.exe
+                {
+                    MessageBox.Show("The file has been successfully downloaded.");
+                }
+                else
+                {
+                    MessageBox.Show(EauthPrimaryClass.errorMessage);
+                }
+                */
             }
             else
             {

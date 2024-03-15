@@ -11,6 +11,7 @@ using System.Text;
 using System.Linq;
 using System.Text.Json;
 using System.Diagnostics;
+using System.Windows.Forms;
 
 namespace Eauth
 {
@@ -39,6 +40,8 @@ namespace Eauth
         private string usedNameMessage = "Username already taken. Please choose a different username!";
         private string invalidKeyMessage = "Invalid key. Please enter a valid key!";
         private string upgradeYourEauthMessage = "Upgrade your Eauth plan to exceed the limits!";
+        private string unauthorizedSessionMessage = "Unauthorized session.";
+        private string invalidFileMessage = "Incorrect file credentials!";
 
         /* Dynamic configuration (this refers to configuration settings that can be changed during runtime) */
         private static bool init;
@@ -200,7 +203,7 @@ namespace Eauth
             {
                 LogEauthError(bannedUserMessage);
             }
-            
+
             return init;
         }
 
@@ -366,6 +369,69 @@ namespace Eauth
             }
 
             return login;
+        }
+
+        // Download request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/download-file)
+        public async Task<bool>DownloadRequest(string fileID, string outputPath, string fileName)
+        {
+            if (!init)
+            {
+                LogEauthError(unavaiableSessionMessage);
+            }
+            var data = new Dictionary<string, string>
+            {
+                { "sort", "download" },
+                { "sessionid", sessionID },
+                { "fileid", fileID }
+            };
+            var response = await EauthRequest(data);
+            JsonDocument document = JsonDocument.Parse(response);
+            string message = document.RootElement.GetProperty("message").GetString();
+
+            bool downloadStatus = false;
+
+            if (message == "download_success")
+            {
+                byte[] fileBytes = Convert.FromBase64String(document.RootElement.GetProperty("bytes").GetString());
+
+                // Ensure the output directory exists
+                Directory.CreateDirectory(outputPath);
+
+                // Construct the full file path
+                string filePath = Path.Combine(outputPath, fileName);
+
+                // Write the file with the provided bytes
+                File.WriteAllBytes(filePath, fileBytes);
+
+                // Set return to true;
+                downloadStatus = true;
+            }
+            else if (message == "session_unavailable")
+            {
+                LogEauthError(unavaiableSessionMessage);
+            }
+            else if (message == "session_unauthorized")
+            {
+                LogEauthError(unauthorizedSessionMessage);
+            }
+            else if (message == "invalid_request")
+            {
+                LogEauthError(invalidRequestMessage); // This is usually not the case
+            }
+            else if (message == "invalid_account_key")
+            {
+                LogEauthError(invalidAccountKeyMessage);
+            }
+            else if (message == "session_expired")
+            {
+                LogEauthError(expiredSessionMessage);
+            }
+            else if (message == "invalid_file")
+            {
+                LogEauthError(invalidFileMessage);
+            }
+
+            return downloadStatus;
         }
     }
 }
