@@ -392,19 +392,31 @@ namespace Eauth
 
             if (message == "download_success")
             {
-                byte[] fileBytes = Convert.FromBase64String(document.RootElement.GetProperty("bytes").GetString());
+                using (HttpClient client = new HttpClient())
+                {
+                    HttpResponseMessage fResponse = await client.GetAsync(document.RootElement.GetProperty("link").GetString());
 
-                // Ensure the output directory exists
-                Directory.CreateDirectory(outputPath);
+                    if (fResponse.IsSuccessStatusCode)
+                    {
+                        byte[] fileBytes = await fResponse.Content.ReadAsByteArrayAsync();
 
-                // Construct the full file path
-                string filePath = Path.Combine(outputPath, fileName);
+                        // Ensure the output directory exists
+                        Directory.CreateDirectory(outputPath);
 
-                // Write the file with the provided bytes
-                File.WriteAllBytes(filePath, fileBytes);
+                        // Construct the full file path
+                        string filePath = Path.Combine(outputPath, fileName);
 
-                // Set return to true;
-                downloadStatus = true;
+                        // Write the file with the provided bytes
+                        File.WriteAllBytes(filePath, fileBytes);
+
+                        // Set return to true;
+                        downloadStatus = true;
+                    }
+                    else
+                    {
+                        LogEauthError(invalidFileMessage);
+                    }
+                }
             }
             else if (message == "session_unavailable")
             {
