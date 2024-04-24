@@ -86,5 +86,20 @@ namespace Eauth_CS_Winform
             // Close the current form
             this.Close();
         }
+
+        private void upgradeAccountButton_Click(object sender, EventArgs e)
+        {
+            // Create an instance of the new form
+            eauthUpgradeForm upgradeForm = new eauthUpgradeForm();
+
+            // Hide the current form
+            this.Hide();
+
+            // Show the new form
+            upgradeForm.ShowDialog();
+
+            // Close the current form
+            this.Close();
+        }
     }
 }

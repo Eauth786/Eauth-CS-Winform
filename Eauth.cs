@@ -42,6 +42,7 @@ namespace Eauth
         private string upgradeYourEauthMessage = "Upgrade your Eauth plan to exceed the limits!";
         private string unauthorizedSessionMessage = "Unauthorized session.";
         private string invalidFileMessage = "Incorrect file credentials!";
+        private string invalidEmailMessage = "The email you entered is either already in use or unavailable or invalid!";
 
         /* Dynamic configuration (this refers to configuration settings that can be changed during runtime) */
         private static bool init;
@@ -58,6 +59,8 @@ namespace Eauth
         public static string userHwid;
 
         private static bool register;
+
+        private static bool reset;
 
         public static string errorMessage;
 
@@ -208,18 +211,14 @@ namespace Eauth
         }
 
         // Register request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/register)
-        public async Task<bool> RegisterRequest(string username, string password, string key)
+        public async Task<bool> RegisterRequest(string username, string email, string password, string key)
         {
-            if (register || login)
-            {
-                LogEauthError(usedSessionMessage);
-                return false;
-            }
             var data = new Dictionary<string, string>
             {
                 { "sort", "register" },
                 { "sessionid", sessionID },
                 { "username", username },
+                { "email", email },
                 { "password", password },
                 { "key", key },
                 { "hwid", GetHardwareID() }
@@ -236,6 +235,10 @@ namespace Eauth
             else if (message == "session_unavailable")
             {
                 LogEauthError(unavaiableSessionMessage);
+            }
+            else if (message == "invalid_email")
+            {
+                LogEauthError(invalidEmailMessage);
             }
             else if (message == "session_already_used")
             {
@@ -371,6 +374,55 @@ namespace Eauth
             return login;
         }
 
+        // Reset password request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/password-reset)
+        public async Task<bool> ResetPasswordRequest(string email)
+        {
+            if (login || reset)
+            {
+                LogEauthError(usedSessionMessage);
+                return false;
+            }
+            var data = new Dictionary<string, string>
+            {
+                { "sort", "reset_password" },
+                { "sessionid", sessionID },
+                { "email", email }
+            };
+            var response = await EauthRequest(data);
+            JsonDocument document = JsonDocument.Parse(response);
+            string message = document.RootElement.GetProperty("message").GetString();
+            if (message == "sent_email")
+            {
+                // Reset success
+                reset = true;
+            }
+            else if (message == "session_unavailable")
+            {
+                LogEauthError(unavaiableSessionMessage);
+            }
+            else if (message == "invalid_email")
+            {
+                LogEauthError(invalidEmailMessage);
+            }
+            else if (message == "session_unauthorized")
+            {
+                LogEauthError(unauthorizedSessionMessage);
+            }
+            else if (message == "invalid_request")
+            {
+                LogEauthError(invalidRequestMessage); // This is usually not the case
+            }
+            else if (message == "invalid_application_key")
+            {
+                LogEauthError(invalidApplicationKeyMessage);
+            }
+            else if (message == "session_expired")
+            {
+                LogEauthError(expiredSessionMessage);
+            }
+                return reset;
+            }
+
         // Download request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/download-file)
         public async Task<bool>DownloadRequest(string fileID, string outputPath, string fileName)
         {
@@ -444,6 +496,60 @@ namespace Eauth
             }
 
             return downloadStatus;
+        }
+
+        // Upgrade request (https://eauth.gitbook.io/eauth-api-1.1-latest/step-by-step/upgrade)
+        public async Task<bool> UpgradeRequest(string username, string key)
+        {
+            bool upgrade = false;
+            var data = new Dictionary<string, string>
+            {
+                { "sort", "upgrade" },
+                { "sessionid", sessionID },
+                { "username", username },
+                { "key", key }
+            };
+            var response = await EauthRequest(data);
+            JsonDocument document = JsonDocument.Parse(response);
+            string message = document.RootElement.GetProperty("message").GetString();
+            if (message == "upgrade_success")
+            {
+                // Upgrade success
+                upgrade = true;
+            }
+            else if (message == "session_unavailable")
+            {
+                LogEauthError(unavaiableSessionMessage);
+            }
+            else if (message == "account_unavailable")
+            {
+                LogEauthError(invalidUserMessage);
+            }
+            else if (message == "key_unavailable")
+            {
+                LogEauthError(invalidKeyMessage);
+            }
+            else if (message == "invalid_email")
+            {
+                LogEauthError(invalidEmailMessage);
+            }
+            else if (message == "session_unauthorized")
+            {
+                LogEauthError(unauthorizedSessionMessage);
+            }
+            else if (message == "invalid_request")
+            {
+                LogEauthError(invalidRequestMessage); // This is usually not the case
+            }
+            else if (message == "invalid_account_key")
+            {
+                LogEauthError(invalidAccountKeyMessage);
+            }
+            else if (message == "session_expired")
+            {
+                LogEauthError(expiredSessionMessage);
+            }
+            return upgrade;
         }
     }
 }

@@ -39,6 +39,7 @@ namespace Eauth_CS_Winform
             this.exitButton = new Siticone.Desktop.UI.WinForms.SiticoneCircleButton();
             this.registerInsteadButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.loginNamePasswordButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
+            this.upgradeAccountButton = new Siticone.Desktop.UI.WinForms.SiticoneButton();
             this.SuspendLayout();
             // 
             // siticoneBorderlessForm1
@@ -212,12 +213,33 @@ namespace Eauth_CS_Winform
             this.loginNamePasswordButton.Text = "Login with Key";
             this.loginNamePasswordButton.Click += new System.EventHandler(this.loginNamePasswordButton_Click);
             // 
+            // upgradeAccountButton
+            // 
+            this.upgradeAccountButton.Animated = true;
+            this.upgradeAccountButton.AutoRoundedCorners = true;
+            this.upgradeAccountButton.BorderRadius = 10;
+            this.upgradeAccountButton.DisabledState.BorderColor = System.Drawing.Color.DarkGray;
+            this.upgradeAccountButton.DisabledState.CustomBorderColor = System.Drawing.Color.DarkGray;
+            this.upgradeAccountButton.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(169)))), ((int)(((byte)(169)))), ((int)(((byte)(169)))));
+            this.upgradeAccountButton.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(141)))), ((int)(((byte)(141)))), ((int)(((byte)(141)))));
+            this.upgradeAccountButton.FillColor = System.Drawing.Color.Transparent;
+            this.upgradeAccountButton.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Bold);
+            this.upgradeAccountButton.ForeColor = System.Drawing.Color.White;
+            this.upgradeAccountButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.upgradeAccountButton.Location = new System.Drawing.Point(12, 209);
+            this.upgradeAccountButton.Name = "upgradeAccountButton";
+            this.upgradeAccountButton.Size = new System.Drawing.Size(310, 23);
+            this.upgradeAccountButton.TabIndex = 19;
+            this.upgradeAccountButton.Text = "Upgrade an Account";
+            this.upgradeAccountButton.Click += new System.EventHandler(this.upgradeAccountButton_Click);
+            // 
             // eauthLoginFormUP
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.ClientSize = new System.Drawing.Size(334, 220);
+            this.ClientSize = new System.Drawing.Size(334, 252);
+            this.Controls.Add(this.upgradeAccountButton);
             this.Controls.Add(this.loginNamePasswordButton);
             this.Controls.Add(this.registerInsteadButton);
             this.Controls.Add(this.exitButton);
@@ -236,7 +258,7 @@ namespace Eauth_CS_Winform
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eauth.us.to";
-            this.TopMost = true;
+            this.TopMost = false;
             this.Load += new System.EventHandler(this.eauthLoginForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -253,6 +275,7 @@ namespace Eauth_CS_Winform
         private Siticone.Desktop.UI.WinForms.SiticoneCircleButton exitButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton loginNamePasswordButton;
         private Siticone.Desktop.UI.WinForms.SiticoneButton registerInsteadButton;
+        private Siticone.Desktop.UI.WinForms.SiticoneButton upgradeAccountButton;
     }
 }
 

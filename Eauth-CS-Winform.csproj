@@ -96,6 +96,18 @@
     <Compile Include="eauthLoginFormUP.Designer.cs">
       <DependentUpon>eauthLoginFormUP.cs</DependentUpon>
     </Compile>
+    <Compile Include="eauthUpgradeForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eauthUpgradeForm.Designer.cs">
+      <DependentUpon>eauthUpgradeForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="eauthResetPasswordForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="eauthResetPasswordForm.Designer.cs">
+      <DependentUpon>eauthResetPasswordForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="eauthLoginFormLK.resx">
@@ -106,6 +118,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="eauthLoginFormUP.resx">
       <DependentUpon>eauthLoginFormUP.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eauthUpgradeForm.resx">
+      <DependentUpon>eauthUpgradeForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="eauthResetPasswordForm.resx">
+      <DependentUpon>eauthResetPasswordForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

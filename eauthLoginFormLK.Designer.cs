@@ -302,7 +302,7 @@ namespace Eauth_CS_Winform
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eauth.us.to";
-            this.TopMost = true;
+            this.TopMost = false;
             this.Load += new System.EventHandler(this.eauthLoginFormLK_Load);
             this.ResumeLayout(false);
             this.PerformLayout();

@@ -39,7 +39,7 @@ namespace Eauth_CS_Winform
         private async void registerButton_Click(object sender, EventArgs e)
         {
             registerButton.Enabled = false;
-            if (await eauthClass.RegisterRequest(nameInput.Text, passwordInput.Text, keyInput.Text))
+            if (await eauthClass.RegisterRequest(nameInput.Text, emailInput.Text, passwordInput.Text, keyInput.Text))
             {
                 // Code block executed if credentials are valid:
                 MessageBox.Show(EauthPrimaryClass.registeredMessage);

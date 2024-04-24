@@ -39,6 +39,7 @@ namespace Eauth_CS_Winform
             this.passwordInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.nameInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.keyInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
+            this.emailInput = new Siticone.Desktop.UI.WinForms.SiticoneTextBox();
             this.SuspendLayout();
             // 
             // siticoneBorderlessForm1
@@ -62,7 +63,7 @@ namespace Eauth_CS_Winform
             this.registerInsteadButton.Font = new System.Drawing.Font("Yu Gothic UI", 9F, System.Drawing.FontStyle.Bold);
             this.registerInsteadButton.ForeColor = System.Drawing.Color.White;
             this.registerInsteadButton.HoverState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
-            this.registerInsteadButton.Location = new System.Drawing.Point(12, 183);
+            this.registerInsteadButton.Location = new System.Drawing.Point(15, 212);
             this.registerInsteadButton.Name = "registerInsteadButton";
             this.registerInsteadButton.Size = new System.Drawing.Size(310, 23);
             this.registerInsteadButton.TabIndex = 25;
@@ -109,7 +110,7 @@ namespace Eauth_CS_Winform
             this.registerButton.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
             this.registerButton.Font = new System.Drawing.Font("Yu Gothic UI", 10F, System.Drawing.FontStyle.Bold);
             this.registerButton.ForeColor = System.Drawing.Color.White;
-            this.registerButton.Location = new System.Drawing.Point(12, 154);
+            this.registerButton.Location = new System.Drawing.Point(15, 183);
             this.registerButton.Name = "registerButton";
             this.registerButton.Size = new System.Drawing.Size(310, 23);
             this.registerButton.TabIndex = 22;
@@ -145,7 +146,7 @@ namespace Eauth_CS_Winform
             this.passwordInput.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.passwordInput.ForeColor = System.Drawing.Color.LightGray;
             this.passwordInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.passwordInput.Location = new System.Drawing.Point(44, 89);
+            this.passwordInput.Location = new System.Drawing.Point(44, 115);
             this.passwordInput.MaxLength = 32;
             this.passwordInput.Name = "passwordInput";
             this.passwordInput.PasswordChar = '●';
@@ -210,7 +211,7 @@ namespace Eauth_CS_Winform
             this.keyInput.Font = new System.Drawing.Font("Segoe UI", 9F);
             this.keyInput.ForeColor = System.Drawing.Color.LightGray;
             this.keyInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
-            this.keyInput.Location = new System.Drawing.Point(44, 121);
+            this.keyInput.Location = new System.Drawing.Point(44, 144);
             this.keyInput.MaxLength = 15;
             this.keyInput.Name = "keyInput";
             this.keyInput.PasswordChar = '●';
@@ -225,12 +226,45 @@ namespace Eauth_CS_Winform
             this.keyInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.keyInput.UseSystemPasswordChar = true;
             // 
+            // emailInput
+            // 
+            this.emailInput.Animated = true;
+            this.emailInput.AutoRoundedCorners = true;
+            this.emailInput.BackColor = System.Drawing.Color.Transparent;
+            this.emailInput.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.emailInput.BorderRadius = 10;
+            this.emailInput.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.emailInput.DefaultText = "";
+            this.emailInput.DisabledState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(208)))), ((int)(((byte)(208)))));
+            this.emailInput.DisabledState.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(226)))), ((int)(((byte)(226)))));
+            this.emailInput.DisabledState.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailInput.DisabledState.PlaceholderForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(138)))), ((int)(((byte)(138)))), ((int)(((byte)(138)))));
+            this.emailInput.FillColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(31)))), ((int)(((byte)(30)))));
+            this.emailInput.FocusedState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(7)))), ((int)(((byte)(127)))), ((int)(((byte)(243)))));
+            this.emailInput.Font = new System.Drawing.Font("Segoe UI", 9F);
+            this.emailInput.ForeColor = System.Drawing.Color.LightGray;
+            this.emailInput.HoverState.BorderColor = System.Drawing.Color.FromArgb(((int)(((byte)(94)))), ((int)(((byte)(148)))), ((int)(((byte)(255)))));
+            this.emailInput.Location = new System.Drawing.Point(44, 86);
+            this.emailInput.MaxLength = 15;
+            this.emailInput.Name = "emailInput";
+            this.emailInput.PasswordChar = '\0';
+            this.emailInput.PlaceholderForeColor = System.Drawing.Color.Gray;
+            this.emailInput.PlaceholderText = "Email Address";
+            this.emailInput.SelectedText = "";
+            this.emailInput.ShadowDecoration.BorderRadius = 3;
+            this.emailInput.ShadowDecoration.Depth = 5;
+            this.emailInput.ShadowDecoration.Enabled = true;
+            this.emailInput.Size = new System.Drawing.Size(244, 23);
+            this.emailInput.TabIndex = 27;
+            this.emailInput.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            // 
             // eauthRegisterForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(22)))), ((int)(((byte)(22)))), ((int)(((byte)(22)))));
-            this.ClientSize = new System.Drawing.Size(334, 220);
+            this.ClientSize = new System.Drawing.Size(334, 264);
+            this.Controls.Add(this.emailInput);
             this.Controls.Add(this.keyInput);
             this.Controls.Add(this.registerInsteadButton);
             this.Controls.Add(this.exitButton);
@@ -249,7 +283,7 @@ namespace Eauth_CS_Winform
             this.ShowIcon = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Eauth.us.to";
-            this.TopMost = true;
+            this.TopMost = false;
             this.Load += new System.EventHandler(this.eauthRegisterForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -266,6 +300,7 @@ namespace Eauth_CS_Winform
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox passwordInput;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox nameInput;
         private Siticone.Desktop.UI.WinForms.SiticoneTextBox keyInput;
+        private Siticone.Desktop.UI.WinForms.SiticoneTextBox emailInput;
     }
 }
 
